@@ -4,7 +4,7 @@ import {
   networks,
   payments,
   Psbt,
-} from "belcoinjs-lib";
+} from "junkcoinjs-lib";
 
 import {
   MAX_CHUNK_LEN,

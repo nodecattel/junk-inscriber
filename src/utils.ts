@@ -1,4 +1,4 @@
-import { Transaction, Network, payments, address } from "belcoinjs-lib";
+import { Transaction, Network, payments, address } from "junkcoinjs-lib";
 import { AddressType, ApiUTXO } from "./types.js";
 
 export function gptFeeCalculate(

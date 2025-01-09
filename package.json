@@ -1,23 +1,23 @@
 {
-  "version": "0.2.8",
-  "name": "bells-inscriber",
+  "version": "0.0.1",
+  "name": "junk-inscriber",
   "module": "index.ts",
   "type": "module",
   "description": "Browser inscriber",
   "scripts": {
     "build": "rm -rf lib && tsc"
   },
-  "homepage": "https://github.com/Nintondo/bells-inscriber#readme",
+  "homepage": "https://github.com/nodecattel/junk-inscriber#readme",
   "bugs": {
-    "url": "https://github.com/Nintondo/bells-inscriber/issues"
+    "url": "https://github.com/nodecattel/junk-inscriber/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nintondo/bells-inscriber.git"
+    "url": "git+https://github.com/nodecattel/junk-inscriber.git"
   },
   "dependencies": {
     "@noble/hashes": "1.4.0",
-    "belcoinjs-lib": "^0.1.3"
+    "junkcoinjs-lib": "^0.0.7"
   },
   "devDependencies": {
     "bun-types": "latest"

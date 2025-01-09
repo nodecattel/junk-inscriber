@@ -1,87 +1,92 @@
-# bells-inscriber 📜🔔
+# junk-inscriber ⚓ 📜
 
-Welcome to `bells-inscriber`, your friendly neighborhood tool for inscribing data onto the Bellscoin blockchain! 🐾💰 If you're looking to leave your mark on the blockchain in a fun, animal-crossing inspired way, you've come to the right place. Here's everything you need to know to get started:
+A robust toolkit for inscribing data onto the JunkCoin blockchain. This library provides efficient methods for creating and managing inscriptions through a straightforward API.
 
-## 🌟 Features
+## Features 🌟
 
-- **Multiple Inscriptions**: Prepare and inscribe multiple pieces of data at once. 🐼📜
-- **Custom Content**: Inscribe any type of data with custom content types. 🎨
-- **Efficient UTXO Management**: Handles UTXO selection and management for your inscriptions. 🛠️
-- **Network Agnostic**: Works across different Bellscoin networks. 🌐
+- Batch inscription processing for multiple data points 📦
+- Support for diverse content types and data formats 🎨
+- Advanced UTXO management and optimization ⚙️
+- Cross-network compatibility 🌐
+- Transaction fee optimization 💎
+- Comprehensive error handling 🛡️
 
-## 📦 Installation
+## Installation 🚀
 
 ```bash
-npm install bells-inscriber
-```
+npm install junk-inscriber
+Core Functionality ⚔️
+Multiple Inscription Preparation
+javascriptCopyimport { prepareInscriptionBatch } from 'junk-inscriber';
 
-## 🚀 Usage
-
-### Preparing for Multiple Inscriptions
-
-To prepare for inscribing multiple pieces of data:
-
-```javascript
-import { prepareToInscribeMultipleInscriptions } from 'bells-inscriber';
-
-const params = {
-  signPsbtHex: async (psbtHex) => { /* Your signing function */ },
-  utxos: /* Array of UTXOs */,
-  feeRate: 1, // satoshi/vbyte
-  amount: 5, // Number of inscriptions
-  signleInscriptionCost: 1000, // Cost for each inscription in satoshis
-  address: 'your-bellscoin-address',
-  network: { /* Bellscoin network config */ }
+const config = {
+  signPsbtHex: async (psbtHex) => {
+    // Implement your transaction signing logic
+  },
+  availableUtxos: utxoSet,
+  feeRate: 1,  // satoshi/vbyte
+  batchSize: 5,
+  inscriptionCost: 1000,
+  destinationAddress: 'junk-address',
+  networkConfig: {
+    // Your network configuration
+  }
 };
 
-prepareToInscribeMultipleInscriptions(params)
-  .then(txHex => console.log('Transaction Hex:', txHex))
-  .catch(err => console.error('Error:', err));
-```
+prepareInscriptionBatch(config)
+  .then(transaction => console.log('Prepared Transaction:', transaction))
+  .catch(error => console.error('Preparation Error:', error));
+Single Inscription Creation
+javascriptCopyimport { createInscription } from 'junk-inscriber';
 
-### Inscribing Data
-
-To inscribe your data:
-
-```javascript
-import { inscribe } from 'bells-inscriber';
-
-const inscribeParams = {
-  toAddress: 'recipient-address',
-  fromAddress: 'your-address',
+const inscriptionConfig = {
+  recipient: 'destination-address',
+  sender: 'source-address',
   contentType: 'text/plain',
-  data: Buffer.from('Hello, Bellscoin!'),
+  content: Buffer.from('JunkCoin Inscription'),
   feeRate: 1,
-  network: { /* Bellscoin network config */ },
-  utxos: /* Array of UTXOs */,
+  networkConfig: {
+    // Network parameters
+  },
+  availableUtxos: utxoSet,
   publicKey: Buffer.from('your-public-key'),
-  signPsbtHex: async (psbtHex) => { /* Your signing function */ }
+  signPsbtHex: async (psbtHex) => {
+    // Transaction signing implementation
+  }
 };
 
-inscribe(inscribeParams)
-  .then(txs => console.log('Inscription Transactions:', txs))
-  .catch(err => console.error('Inscription Error:', err));
-```
+createInscription(inscriptionConfig)
+  .then(result => console.log('Inscription Result:', result))
+  .catch(error => console.error('Inscription Error:', error));
+Development Setup 🛠️
 
-## 🐛 Development
+Clone repository:
+bashCopygit clone git@github.com:your-username/junk-inscriber.git
 
-- **Clone the repo**: `git clone git@github.com:your-username/bells-inscriber.git`
-- **Install dependencies**: `npm install`
-- **Run tests**: `npm test`
-- **Build**: `npm run build`
+Install dependencies:
+bashCopynpm install
 
-## 🛠️ Contributing
+Run test suite:
+bashCopynpm test
 
-Contributions are welcome! 🐻 Feel free to fork the repository and submit pull requests.
+Build project:
+bashCopynpm run build
 
-## 📜 License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+Contributing 🤝
+Contributions are welcome. Please follow these steps:
 
-## 🎮 Inspiration
+Fork the repository
+Create a feature branch
+Implement your changes
+Add or update tests as needed
+Submit a pull request
 
-Inspired by the whimsical world of Animal Crossing, where bells are currency, and every transaction is a new adventure. Let's make the Bellscoin blockchain as fun and engaging as our favorite island getaway!
+Please ensure your code adheres to our style guidelines and includes appropriate documentation.
+License 📜
+This project is licensed under the MIT License. See the LICENSE.md file for details.
+About ⚓
+junk-inscriber is designed for the JunkCoin blockchain ecosystem, focusing on reliability and efficient inscription management. Built with modern JavaScript practices, it provides a foundation for creating and managing blockchain inscriptions effectively.
 
----
-
-Feel free to dive into the code, customize it for your Bellscoin adventures, and remember, every inscription is a new story on the blockchain! 📖🔔
+For detailed API documentation, examples, and best practices, visit our documentation. 📚
+Note: This library is actively maintained and follows semantic versioning for releases. 🏴‍☠️
